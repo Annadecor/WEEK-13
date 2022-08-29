@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button{
+            width: 80px;
+            height:80px;
+            background-color: aqua;
+            font-size: 2em;
+
+        }
+
+ 
+    </style>
+</head>
+<body>
+
+ <h1>Калькулятор для котов</h1>
+    <button onclick="showMessage1()">*</button>
+    <button onclick="showMessage2()">/</button>
+    <button onclick="showMessage3()">+</button>
+    <button onclick="showMessage4()">-</button>
+
+
+    <script>
+        function showMessage1() {
+        let num1 = prompt('Напиши цифру?', );
+        let num2 = prompt('Напиши еще цифру?', );
+        alert(num1*num2); }
+
+        function showMessage2() {
+        let num3 = prompt('Напиши цифру?', );
+        let num4 = prompt('Напиши еще цифру?', );
+        alert(num3/num4); }
+
+        function showMessage3() {
+        let num5 = prompt('Напиши цифру?', );
+        let num6 = prompt('Напиши еще цифру?', );
+        alert(+num5 + +num6); }
+
+        function showMessage4() {
+        let num7 = prompt('Напиши цифру?', );
+        let num8 = prompt('Напиши еще цифру?', );
+        alert(num7-num8); }
+
+
+
+
+        </script>
+    
+</body>
+</html>
