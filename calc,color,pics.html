@@ -107,10 +107,24 @@ function func1(){
         </script>
       <h2>Картинки</h2>
         <img id="pic1"src="images/cat6.jpg"/>
-
+        
+        <button onclick="showbefore();">Назад</button>
+        <button onclick="shownext();">Вперед</button>
+        
         <button onclick="imagsrc();">Далее</button>
 
         <script>
+
+function shownext(){
+  let pic=document.getElementById("pic1");
+  pic.src="images/cat7.jpg";
+
+}
+function showbefore(){
+  let pic=document.getElementById("pic1");
+  pic.src="images/cat6.jpg";
+
+}
     
 
             var i=0;
