@@ -32,7 +32,7 @@ height:300px
 	<input id="number2" />
 	<br>
 
-	<button onclick="func()">Посчитать</button>
+	<button onclick="func()" onkclick="ziro()">Посчитать</button>
         
             <h3>Результат</h3>
        
@@ -76,9 +76,12 @@ function func() {
       result = number1 / number2;
       break;
   }
-
+ if (number2==0 && 
+      result == number1 / number2){
+    alert("На ноль делить нельзя!");}
 
   document.getElementById("result").innerHTML = result;
+
 };
 
 
@@ -107,7 +110,7 @@ function func1(){
         </script>
       <h2>Картинки</h2>
         <img id="pic1"src="images/cat6.jpg"/>
-        
+
         <button onclick="showbefore();">Назад</button>
         <button onclick="shownext();">Вперед</button>
         
