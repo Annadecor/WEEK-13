@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+    <title>Registrationform</title>
+    <style>
+        
+         .container{
+            display:grid;
+            width:50%;
+            justify-content: center;
+            background-image: scr="images/cat6,jpg";
+        
+         }
+
+/* Style the input container */
+#inputcontainer {
+  display: flex;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+/* Style the form icons */
+.icon {
+  padding: 10px;
+  background: dodgerblue;
+  color: white;
+  min-width: 50px;
+  text-align: center;
+}
+
+/* Style the input fields */
+.input-field {
+  width: 100%;
+  padding: 10px;
+  outline: none;
+}
+
+.input-field:focus {
+  border: 2px solid dodgerblue;
+}
+
+/* Set a style for the submit button */
+.btn {
+  background-color: dodgerblue;
+  color: white;
+  padding: 15px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+.btn:hover {
+  opacity: 1;
+}
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Please fill in this form to create an account</h2>
+    <hr>
+     <div id="inputcontainer">
+        
+        <i class="fa fa-user icon"></i>
+    <input class="input-field" type="text" id="firstname" placeholder="Enter Frst name" required/></div>
+    <div id="inputcontainer">
+        
+    <i class="fa fa-user icon"></i>
+    <input class="input-field" type="text" id="lastname" placeholder="Enter Last name" required/></div>
+    <div id="inputcontainer">
+        
+     <i class="fa fa-envelope icon"></i>
+    <input class="input-field" type="text" id="email" placeholder="Enter E-mail" required /></div>
+    <div id="inputcontainer">
+       
+    <i class="fa fa-key icon"></i>
+    <input class="input-field" type="text" id="password1" placeholder="Enter Password" required/></div>
+    <div id="inputcontainer">
+        
+        <i class="fa fa-key icon"></i>
+    <input class="input-field" type="text" id="password1" placeholder="Repeat Password" required/></div>
+
+    <label>
+        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+      </label>
+
+    <button type="text" class="btn">Sing Up</button>
+
+</div>
+    
+</body>
+</html>
