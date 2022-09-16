@@ -5,14 +5,38 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="normalize.css" rel="stylesheet">
+
     <title>Registrationform</title>
     <style>
-        
+
+.custom-select{ 
+  width:300px;
+   
+  }
+
+        #background {
+  position: fixed;
+  width:100%;
+  height:100%;
+background-image: url("images/standart1.jpg");
+background-image: no-repeat;
+background-size: cover;
+}
+
          .container{
             display:grid;
-            width:50%;
+            width:35%;
+            height: 85%;
             justify-content: center;
-            background-image: scr="images/cat6,jpg";
+            align-content: center;
+                        
+            background-color:aliceblue;
+            margin-left: 30%;
+            margin-top:3%;
+            border-radius: 3%;
+            
+
         
          }
 
@@ -21,6 +45,7 @@
   display: flex;
   width: 100%;
   margin-bottom: 15px;
+  
 }
 
 /* Style the form icons */
@@ -57,11 +82,42 @@
 .btn:hover {
   opacity: 1;
 }
+#error{
+  color:red;
+  text-align: center;
+}
+#welcome{
+  color:blue;
+  font-size: 1.5em;
+ 
+  text-align: center;
+}
     </style>
 </head>
 <body>
 
+  <div id="background">
+
+    <div class="custom-select" >
+      <select name="theme" id="theme" onchange="ev()">
+        <option value="0">Select a theme:</option>
+        <option value="1">standart</option>
+        <option value="2">see</option>
+        <option value="3">flowers</option>
+        <option value="4">forest</option>
+        <option value="5">mountains</option>
+        <option value="6">cats</option>
+        <option value="7">blue</option>
+        <option value="8">pink</option>
+        <option value="9">violet</option>
+        <option value="10">green</option>
+             </select>
+    </div>
+     
 <div class="container">
+
+  <div id="welcome"></div>
+
     <h2>Please fill in this form to create an account</h2>
     <hr>
      <div id="inputcontainer">
@@ -79,19 +135,134 @@
     <div id="inputcontainer">
        
     <i class="fa fa-key icon"></i>
-    <input class="input-field" type="text" id="password1" placeholder="Enter Password" required/></div>
+    <input class="input-field" type="password" id="password1" placeholder="Enter Password" required/></div>
     <div id="inputcontainer">
         
         <i class="fa fa-key icon"></i>
-    <input class="input-field" type="text" id="password1" placeholder="Repeat Password" required/></div>
-
+    <input class="input-field" type="password" id="password2" placeholder="Repeat Password" required/></div>
+  
+    <label><input type="checkbox" style="margin-bottom:15px" onclick="showpass()">Show Password
+    </label>
     <label>
         <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
       </label>
+     <div id="error"></div>
+    <button type="text" class="btn" onclick="check()">Sing Up</button>
+   
 
-    <button type="text" class="btn">Sing Up</button>
+</div>  </div>
+<script>
+  function check()
+  { let firstname=document.getElementById("firstname");
 
-</div>
+  let lastname=document.getElementById("lastname");
+  let email=document.getElementById("email");
+  let password1=document.getElementById("password1"); 
+  let password2=document.getElementById("password2");
+
+  document.getElementById("error").innerHTML="";
+  document.getElementById("welcome").innerHTML="";
+
+  
+
+  if (firstname.value ==''){
+    document.getElementById("error")
+    .innerHTML+="field First name is empty<br>";
+  }
+  if (lastname.value ==''){
+    document.getElementById("error")
+    .innerHTML+="field Last name is empty<br>";
+  }
+  if (email.value ==''){
+    document.getElementById("error")
+    .innerHTML+="field Email is empty<br>";
+  }
+  if (password1.value ==''){
+    document.getElementById("error")
+    .innerHTML+="field password is empty<br>";
+  }
+  if (password2.value ==''){
+    document.getElementById("error")
+    .innerHTML+="field Repeat password is empty<br>";
+  }
+  if (password1.value.length <=6){
+    document.getElementById("error")
+    .innerHTML+=" your Password is to short<br>";
+  }
+  if (password2.value != password1.value){
+    document.getElementById("error")
+    .innerHTML+=" your Password is wrong<br>";
+  }
+
+  
+    if (email.value.includes('@')){
+      true;}
+    else {document.getElementById("error")
+    .innerHTML+=" your Email is wrong<br>";} 
+
+    
+
+if (firstname.value !=""&&lastname.value !=""&&email.value!=""&&password1.value!=""&&password2.value!=""
+&&password1.value.length >=6&&password2.value == password1.value&&email.value.includes('@')){
+
+    let name=document.getElementById("firstname").value;
+    document.getElementById("welcome")
+    .innerHTML+=('Welcome,'+ name + '!');}
+
+  }
+  function showpass() {
+    let x = document.getElementById("password1");
+    let y = document.getElementById("password2");
+
+    if (x.type === "password"&&y.type==="password") {
+        x.type = "text";
+        y.type= "text";
+    } else {
+        x.type = "password";
+        y.type = "password";
+    }
+}
+
+
+  function ev(){
+
+let bgr=document.getElementById("background");
+    switch(document.getElementById("theme").value){
+
+  case "1":
+  bgr.style.backgroundImage="url('images/standart1.jpg')";
+break;
+  case "2":
+  bgr.style.backgroundImage="url('images/see.jpg')";
+  break;
+  case "3":
+ bgr.style.backgroundImage="url('images/flowers.jpg')";
+  break;
+  case "4":
+bgr.style.backgroundImage="url('images/forest.jpg')";
+  break;
+  case "5":
+  bgr.style.backgroundImage="url('images/mountains.jpg')";
+  break;
+  case "6":
+  bgr.style.backgroundImage="url('images/cats1.jpg')";
+  break;
+  case "7":
+  bgr.style.backgroundImage="url('images/blue.jpg')";
+  break;
+  case "8":
+  bgr.style.backgroundImage="url('images/pink.jpg')";
+  break;
+  case "9":
+  bgr.style.backgroundImage="url('images/violet.jpg')";
+  break;
+  case "10":
+  bgr.style.backgroundImage="url('images/green.jpg')";
+  break;
+}
+}
+
+</script>
     
 </body>
 </html>
