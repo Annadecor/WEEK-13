@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        .container {
+            width:50%;
+            height: 60vh;
+            background-color: aquamarine;
+           
+
+        }
+       
+
+#btn{
+   
+   background-color: dodgerblue;
+  color: white;
+
+  border: none;
+  cursor: pointer;
+  width: 20%;
+  height: 8%;
+  border-radius: 5%;
+  margin-left: 40%;
+}
+
+.commentext{
+    border: blue 1px solid;
+    width:60%;
+    height:30% ;
+    background-color: white;
+}
+.text{
+    border: blue 1px solid;
+    width:60%;
+    height:10% ;
+    background-color: white;
+    margin-top: 5%;
+}
+
+
+        </style>
+</head>
+
+
+
+<body>
+
+<div class="container">
+<label for="commenttext">Напишите комментарий</label>
+
+<input type="text" class="text" id="commenttext">
+<button id="btn" onclick="checkSpam()">Проверить на спам</button> <br>
+<label for="comment">Ваш комментарий тут</label>
+<textarea class="commentext" id="commentout"></textarea>
+
+
+</div>
+
+<script>
+
+ function checkSpam() {
+
+var str = document.getElementById('commenttext').value;
+ console.log(str);
+  let lowerStr = str.toLowerCase();
+
+
+  if(lowerStr.includes('viagra') || lowerStr.includes('xxx')){
+    nstr=lowerStr.replace('viagra','***')
+                 .replace('xxx','***');
+
+console.log(nstr)}
+
+document.getElementById('commentout').value=nstr;
+
+}
+
+
+
+
+
+
+</script>
+    
+</body>
+</html>

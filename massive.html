@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h2> Введите 6 цифровых значений </h2>
+    <input class="num" type="text">
+    <input class="num" type="text">
+    <input class="num" type="text">
+    <input class="num" type="text">
+    <input class="num" type="text">
+    <input class="num" type="text">
+    <button id="btn" onclick="sumInput()">Отсортировать</button>
+    <button id="btn2" onclick="sumInput2()">Посчитать</button>
+    <div id="list"></div>
+    <div id="list1"></div>
+
+    <script>
+
+  
+function sumInput(){
+      
+      let elements=document.getElementsByClassName("num");
+      console.log(elements);
+      for(let element of elements ){
+        console.log(element.value);
+      }
+      let mas=[ ];
+
+        document.querySelectorAll('.num').forEach(el => {
+            mas.push(el.value);
+        });
+
+        for (let j = 0; j < mas.length; j++) {
+            for (let i = 0; i < mas.length - 1; i++) {
+                if (mas[i] > mas[i + 1]) {
+                    let tmp = mas[i];
+                    mas[i] = mas[i + 1];
+                    mas[i + 1] = tmp;
+                }
+            }
+        }
+        console.log(mas);
+        let totalEl=document.getElementById('list');
+  document.getElementById('list').innerHTML="массив:" + mas;
+totalEl.style.display='block';}
+
+        
+          function sumInput2(){
+
+            let mas=[ ];
+            inp=document.getElementsByClassName("num");
+            
+      let sum = 0;
+  for ( let i = 0; i < inp.length; i++ ){
+    mas[i]=inp[i].value;
+    sum += +mas[i]; 
+    console.log(sum);
+  }
+  
+let totalEl1=document.getElementById('list1');
+  document.getElementById('list1').innerHTML="сумма:" + sum;
+totalEl1.style.display='block';
+
+
+  }
+    
+    
+    </script>
+
+    
+</body>
+</html>

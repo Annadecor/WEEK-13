@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+div{
+    color: white;
+}
+.bmwkm{
+    text-align: left;
+}
+.name{
+       
+    background-color: #4f74b1;
+  color: white;
+  padding: 12px;
+  margin: 0 auto;
+  border: none;
+ 
+  height: 20%;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 20px;
+      }
+      #maincont{
+        width:90%;
+        
+        position: absolute;
+        margin: 0;  
+        background-image: url('images/BMW-M4.jpg') ;     
+        background-repeat: no-repeat;
+        background-size: cover;
+        border:solid red 1px;
+        font-size: 20px; 
+        
+        text-align: center;
+        border-radius: 3px;
+      }
+      .btn {
+  background-color: #4f74b1;
+  color: white;
+  padding: 12px;
+  margin: 10px 0;
+  border: none;
+  width: 15%;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 20px;
+}
+.logo{ 
+    width: 40px;
+    height: 40px;
+}
+.btn:hover {
+  background-color: #211a4b;
+}
+#totalPrice{
+  border:rgb(44, 24, 109) 1px solid;
+  width: 40%;
+  height:20%;
+
+
+}
+    </style>
+</head>
+<body>           
+    
+            <div id="maincont">     
+                <div class="name">Калькулятор стоимости расчета автомобиля BMW <img class="logo" src="images/logobmw.png"></div> <br>
+
+
+                <div>Выберите модель</div>
+
+                <select name="bmwmodel" id="model" onchange="modelprice()">
+
+                 <option value="0">выберите модель</option>
+                <option value="1">BMW 1 серия</option>
+                <option value="2">BMW 2 серия</option>
+                <option value="3">BMW 3 серия</option>
+                <option value="4">BMW 4 серия</option>
+                <option value="5">BMW 5 серия</option>
+                <option value="6">BMW 6 серия</option>
+                  
+                  </select>      
+           
+        
+            
+        <div>Выберите пробег автомобиля</div>
+         
+    <input  type="radio" name="bmwkm" id="km" onchange="kmprice(this);" value='1'/> 
+    <label for="km">менее 5 000 км</label> <br>
+
+    
+    <input  type="radio" name="bmwkm" id="km" onchange="kmprice(this);" value='2'/> 
+    <label for="km">менее 20 000 км</label> <br>
+
+      
+    <input  type="radio" name="bmwkm" id="km" onchange="kmprice(this);" value='3'/> 
+    <label for="km">менее 100 000 км</label> <br>
+
+     
+    <input  type="radio" name="bmwkm" id="km" onchange="kmprice(this);" value='4'/>
+    <label for="km">более 101 000 км</label> <br>
+
+    
+    <div>Выберите год выпуска</div>
+       
+    <input  type="radio" name="bmwyear" id="year" value='1'  onchange="yearprice(this);" />
+    <label for="year">до 1980</label><br>
+
+    
+    <input  type="radio" name="bmwyear"  id="year" value='2'  onchange="yearprice(this);"/>
+    <label for="year">до 2000</label><br>
+
+    
+    <input  type="radio" name="bmwyear"  id="year" value='3' onchange="yearprice(this);" />
+    <label for="year">после 2019</label><br>
+   
+    <div>Выберите мощность двигателя</div>
+      
+    <input  type="radio" name="bmwpower"  id="power"  value='1' onchange="powerprice(this);"/>
+    <label for="power">до 1 л.с</label><br>
+
+   
+    <input type="radio" name="bmwpower"  id="power"  value='2' onchange="powerprice(this);" />
+    <label for="power">до 2 л.с</label><br>
+
+   
+    <input  type="radio" name="bmwpower"  id="power"  value='3' onchange="powerprice(this);"/>
+    <label for="power">до 3 и выше л.с</label><br>
+     
+  
+       <div>Комплектация автомобиля</div>
+
+       <select name="bmwstyle" id="style" onchange="styleprice()">
+        <option value="0">Комплектация автомобиля</option>     
+        <option value="1">Стандарт</option>
+        <option value="2">Спорт</option>
+        <option value="3">М спорт</option>
+        <option value="4">Бизнес</option>
+        <option value="5">Премиум</option>
+          
+          </select>     
+        
+        
+          <div>Тип топлива</div>
+         
+            <input id="fuel" value='1' type="radio" name="bmwfuel" onchange="fuelprice(this);">
+            <label class="container">Дизель
+          </label> <br>
+          
+         
+            <input id="fuel" value='2' type="radio" name="bmwfuel" onchange="fuelprice(this);" >
+            <label class="container">Бензин/Гибрид
+          </label><br>
+          
+          
+            <input id="fuel" value='3' type="radio" name="bmwfuel" onchange="fuelprice(this);">
+            <label class="container">Электрический
+          </label> <br>
+       
+    <button type="text" class="btn" onclick="total()">Рассчитать</button> <br>
+    <div id="totalPrice"></div> </div> 
+   
+   
+<script>
+
+
+function modelprice(){
+  let model = 0;
+switch (document.getElementById('model')
+            .value) {
+            case '1':
+               model = 200000;
+              break;
+            case '2':
+                model = 250000;
+              break;
+              case '3':
+               model = 250000;
+              break;
+            case '4':
+                model = 400000;
+              break;
+              case '5':
+               model = 400000;
+              break;
+            case '6':
+                model = 450000;
+              break; 
+              return model;}
+          console.log(model) ; }
+
+
+   function kmprice(obj){
+    let km=0;
+    let a=obj.value;
+   
+switch (a){
+              case '1':
+               km = 50000;
+              break;
+            case '2':
+                km = 40000;
+              break;
+              case '3':
+               km = 30000;
+              break;
+            case '4':
+                km = 15000;
+              break;
+            
+  return km;}
+console.log(km);}
+
+function yearprice(obj){
+let year=0;
+let b=obj.value;
+switch(b){
+  case '1':
+    year=10000;
+    break;
+ case '2':
+    year=20000;
+    break;
+case '3': year=30000;
+break;
+ 
+ return year;}
+console.log(year); }
+
+
+function powerprice(obj){
+
+let power=0;
+let c=obj.value;
+
+switch(c){
+
+case '1':
+    power=10000;
+    break;
+case '2':
+  power=20000;
+  break;
+case '3':
+     power=30000;
+  break;
+  return power;}
+
+console.log(power); }
+
+function styleprice(){
+  let style = 0;
+switch (document.getElementById("style")
+            .value) {
+            case '1':
+              style = 50000;
+              break;
+            case '2':
+            style = 80000;
+              break;
+              case '3':
+              style = 100000;
+              break;
+            case '4':
+            style = 120000;
+              break;
+              case '5':
+              style = 140000;
+              break; 
+              return style;}
+          
+          console.log(style) ; }
+
+
+function fuelprice(obj){
+let fuel=0;
+let d = obj.value;
+switch(d){
+case '1': fuel=100000;
+break;
+case '2':
+fuel = 110000;
+break;
+case '3': fuel = 150000;
+break;
+return fuel;}
+console.log(fuel); 
+
+}
+
+
+function total(){
+  let total = kmprice()+yearprice()+powerprice()+modelprice()+styleprice()+fuelprice();
+  console.log(total);
+
+let totalEl=document.getElementById('totalPrice');
+
+document.getElementById('totalPrice').innerHTML="Стоимость выбранного авто:" + total;
+totalEl.style.display='block'; }
+
+function hideTotal(){
+let totalEl=document.getElementById('totalPrice');
+totalEl.style.display='none';} 
+
+
+</script>
+
+
+
+</body>
+</html>

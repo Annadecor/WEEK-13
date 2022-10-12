@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    #btn{
+        background-color: rgb(192, 171, 212);
+        width: 160px;      
+    }
+    input{
+        background-color: rgb(198, 175, 219);
+          }
+    </style>
+</head>
+<body>
+     <h2>Генератор чисел</h2>
+
+     <button id="btn" onclick="start()">Посчитай</button> <br>
+
+    <h3>Сгенерировали<h3>
+    <input type="text" class="text" id="number1"> <br>
+
+    <h3>Минимальное<h3>
+    <input type="text" class="text" id="number2"> <br>
+
+
+    <h3>Максимальное<h3>
+    <input type="text" class="text" id="number3"> <br>
+
+    <h3>Средне арифметическое<h3>
+    <input type="text" class="text" id="number4"> <br>
+
+    <h3>Сумма чисел</h3>
+    <input type="text" class="text" id="number5"> <br>
+
+    <h3>Произведение чисел<h3>
+    <input type="text" class="text" id="number6">
+
+
+
+    <script>   
+
+function start(){
+
+    let array = [];
+
+for (let i = 0; i < 10; i++) {
+    let max=10;
+    let min=-10;
+    array.push( Math.floor(min-0.5 + Math.random() * ((max - min) + 1)))
+}
+console.log(array);
+document.getElementById('number1').value=array;
+
+let max=Math.max(...array)
+console.log(max);
+let min=Math.min(...array);
+console.log(min);
+document.getElementById('number2').value=min;
+document.getElementById('number3').value=max;
+
+
+aver=array.reduce((a, b) => a + b)/array.length;
+console.log(aver);
+document.getElementById('number4').value=aver;
+
+
+sum = array.reduce((a, b) => a + b);
+console.log(sum);
+document.getElementById('number5').value=sum;
+
+mult = array.reduce((a, b) => a * b);
+console.log(mult);
+document.getElementById('number6').value=mult;
+
+
+}
+   
+    </script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   
+    <h2>Поле ввода</h2>
+
+<label >Введите ФИО</label>
+<input class="data" id="data" type="text">
+
+<button id="button">Проверить</button>
+
+<h2 >Проверенные поля</h2>
+<label>Фамилия</label>
+<input type="text" class="lastname" id="lastnamedata" />
+<label>Имя</label>
+<input type="text" class="firstname" id="firstnamedata" />
+<label>Отчество</label>
+<input type="text" class="midname" id="midnamedata" />
+
+
+
+
+<script>
+    button.onclick=()=>{
+ 
+    var str = document.getElementById('data').value;
+    console.log(str);
+
+var nstr= str.replace(/\s+/g,' ' ) // заменить длинные пробелы одним
+    .replace(/^\s/,'')    // удалить пробелы в начале строки
+    .replace(/\s$/,'')  // удалить пробелы в конце строки
+    .replace(/[0-9]/g, '')  // удалить цифры
+    .replace(/[^\w\s]|_/g, "");  // удалить знаки
+
+     console.log(nstr);
+
+var arr = nstr.split(' ').map(e => e.toLowerCase()); 
+
+console.log(arr);
+let newArr=[];
+arr.forEach((item) => {
+word = item[0].toUpperCase() + item.slice(1);
+newArr.push(word);
+})
+ 
+lastName = newArr[0];
+firstName = newArr[1];
+ midName=newArr[2];
+
+document.getElementById("lastnamedata").value=lastName;
+document.getElementById("firstnamedata").value=firstName;
+document.getElementById("midnamedata").value=midName; 
+
+}
+
+
+  
+
+
+
+
+
+
+
+   
+
+
+
+
+
+
+
+    
+
+    
+
+
+ 
+</script>
+
+
+
+</body>
+</html>
