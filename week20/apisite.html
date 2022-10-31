@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<div class="container">
+<h2>If you are bored, get your activity right now! </h2>
+<span>&#9759;</span>
+<div class="activity"></div>
+<div class="type"></div>
+<h2>To get new activity refresh the page</h2> </div>
+
+
+
+    <script>
+
+document.addEventListener("DOMContentLoaded",function (event){
+    getactivity();})
+
+function getactivity(){
+
+
+    fetch('https://www.boredapi.com/api/activity/')
+    .then (response=>response.json())
+    .then (activity=>{console.log(activity);
+    document.querySelector('.activity').innerText='Advise:'+" "+ activity.activity;
+    document.querySelector('.type').innerText='Type of advise:' +" " + activity.type;
+
+
+})
+    .catch(error=>console.log(error))
+}
+
+    </script>
+    
+</body>
+</html>

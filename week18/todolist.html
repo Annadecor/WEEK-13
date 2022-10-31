@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+#btn{
+    background-color:blueviolet;
+    color:beige;
+    width:100px;
+    height: 50px;
+}
+button{
+    background-color:blueviolet;
+    color:beige;
+
+}
+
+    </style>
+</head>
+<body>
+    
+    <input type="text" id="todo">
+    <button id="btn" class="add">add task</button>
+    <button id="btn" class="clear">clear storage</button>
+
+    <ul></ul>
+
+    <script>
+// находим инпут и фокусируемся на нем
+let input = document.querySelector('input')
+input.focus()
+// находим кнопку для добавления задачи в список
+let addButton = document.querySelector('.add')
+// находим контейнер для списка
+let list = document.querySelector('ul')
+
+// если в localStorage имеются данные
+if (localStorage.length != 0) {
+    // цикл по количеству пар ключ/значение
+    for (let i = 0; i < localStorage.length; i++) {
+        let key = localStorage.key(i)
+        // получаем шаблон - элемент списка
+        let template = `${localStorage.getItem(key)}`
+        // помещаем задачу в список
+        list.insertAdjacentHTML('afterbegin', template)
+    }
+    
+    // находим все кнопки с классом "close" - галочки для выполненных задач
+    document.querySelectorAll('.close').forEach(b => {
+        // для каждой кнопки
+        b.addEventListener('click', e => {
+            // получаем родительский элемент "li"
+            let item = e.target.parentElement
+            // удаляем задачу из списка
+            list.removeChild(item)
+            // удаляем данные из localStorage
+            localStorage.removeItem(`${item.dataset.id}`)
+        })
+    })
+}
+
+// добавляем задачу в список при нажатии "Enter"
+window.addEventListener('keydown', e => {
+    if (e.keyCode == 13) addButton.click()
+})
+
+// вешаем на кнопку для добавления задачи в список обработчик события "клик"
+addButton.addEventListener('click', () => {
+    // получаем строку - задачу
+    let text = input.value
+    // формируем шаблон, запись и идентификация значений по ключам осуществляется через атрибут "data-id"
+    let template = `<li data-id="${++localStorage.length}"><button class="close">V</button><time>${new Date().toLocaleDateString()}</time><p>${text}</p></li>`
+    // добавляем шаблон - задачу в список
+    list.insertAdjacentHTML('afterbegin', template)
+    // записываем данные в localStorage
+    localStorage.setItem(`${++localStorage.length}`, template)
+    // сбрасываем значение инпута
+    input.value = ''
+
+    // вешаем на кнопку для удаления задачи из списка обработчик события "клик"
+    document.querySelector('.close').addEventListener('click', e => {
+        // получаем элемент списка - родительский элемент кнопки
+        let item = e.target.parentElement
+        // удаляем задачу из списка
+        list.removeChild(item)
+        // удаляем данные из localStorage
+        localStorage.removeItem(`${item.dataset.id}`)
+    })
+})
+
+// вешаем на кнопку для очистки обработчик события "клик"
+document.querySelector('.clear').onclick = () => {
+    // очищаем хранилище
+    localStorage.clear()
+    // удаляем задачи из списка
+    document.querySelectorAll('li').forEach(item => list.removeChild(item))
+    // фокусируемся на инпуте
+    input.focus()
+}
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

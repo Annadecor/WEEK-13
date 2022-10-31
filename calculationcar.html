@@ -61,6 +61,7 @@ div{
   border:rgb(44, 24, 109) 1px solid;
   width: 40%;
   height:20%;
+  color:blue;
 
 
 }
@@ -68,21 +69,22 @@ div{
 </head>
 <body>           
     
-            <div id="maincont">     
+            <div id="maincont">  
+              <form id="container" >
                 <div class="name">Калькулятор стоимости расчета автомобиля BMW <img class="logo" src="images/logobmw.png"></div> <br>
 
 
                 <div>Выберите модель</div>
 
-                <select name="bmwmodel" id="model" onchange="modelprice()">
+                <select name="bmwmodel" id="model" >
 
-                 <option value="0">выберите модель</option>
-                <option value="1">BMW 1 серия</option>
-                <option value="2">BMW 2 серия</option>
-                <option value="3">BMW 3 серия</option>
-                <option value="4">BMW 4 серия</option>
-                <option value="5">BMW 5 серия</option>
-                <option value="6">BMW 6 серия</option>
+                 <option value="200 000">выберите модель</option>
+                <option value="250 000">BMW 1 серия</option>
+                <option value="250 000">BMW 2 серия</option>
+                <option value="400 000">BMW 3 серия</option>
+                <option value="400 000">BMW 4 серия</option>
+                <option value="450 000">BMW 5 серия</option>
+                <option value="450 000">BMW 6 серия</option>
                   
                   </select>      
            
@@ -90,222 +92,159 @@ div{
             
         <div>Выберите пробег автомобиля</div>
          
-    <input  type="radio" name="bmwkm" id="km" onchange="kmprice(this);" value='1'/> 
+    <input  type="radio" name="bmwkm" id="km" value="50000"/> 
     <label for="km">менее 5 000 км</label> <br>
 
     
-    <input  type="radio" name="bmwkm" id="km" onchange="kmprice(this);" value='2'/> 
+    <input  type="radio" name="bmwkm" id="km"  value="40000"/> 
     <label for="km">менее 20 000 км</label> <br>
 
       
-    <input  type="radio" name="bmwkm" id="km" onchange="kmprice(this);" value='3'/> 
+    <input  type="radio" name="bmwkm" id="km"  value="30000"/> 
     <label for="km">менее 100 000 км</label> <br>
 
      
-    <input  type="radio" name="bmwkm" id="km" onchange="kmprice(this);" value='4'/>
+    <input  type="radio" name="bmwkm" id="km" value="15000"/>
     <label for="km">более 101 000 км</label> <br>
 
     
     <div>Выберите год выпуска</div>
        
-    <input  type="radio" name="bmwyear" id="year" value='1'  onchange="yearprice(this);" />
+    <input  type="radio" name="bmwyear" id="year" value='10000'  />
     <label for="year">до 1980</label><br>
 
     
-    <input  type="radio" name="bmwyear"  id="year" value='2'  onchange="yearprice(this);"/>
+    <input  type="radio" name="bmwyear"  id="year" value='20000' />
     <label for="year">до 2000</label><br>
 
     
-    <input  type="radio" name="bmwyear"  id="year" value='3' onchange="yearprice(this);" />
+    <input  type="radio" name="bmwyear"  id="year" value='30000'  />
     <label for="year">после 2019</label><br>
    
     <div>Выберите мощность двигателя</div>
       
-    <input  type="radio" name="bmwpower"  id="power"  value='1' onchange="powerprice(this);"/>
+    <input  type="radio" name="bmwpower"  id="power"  value='10000' />
     <label for="power">до 1 л.с</label><br>
 
    
-    <input type="radio" name="bmwpower"  id="power"  value='2' onchange="powerprice(this);" />
+    <input type="radio" name="bmwpower"  id="power"  value='20000' />
     <label for="power">до 2 л.с</label><br>
 
    
-    <input  type="radio" name="bmwpower"  id="power"  value='3' onchange="powerprice(this);"/>
+    <input  type="radio" name="bmwpower"  id="power"  value='30000'/>
     <label for="power">до 3 и выше л.с</label><br>
      
   
        <div>Комплектация автомобиля</div>
 
-       <select name="bmwstyle" id="style" onchange="styleprice()">
-        <option value="0">Комплектация автомобиля</option>     
-        <option value="1">Стандарт</option>
-        <option value="2">Спорт</option>
-        <option value="3">М спорт</option>
-        <option value="4">Бизнес</option>
-        <option value="5">Премиум</option>
+       <select name="bmwstyle" id="style">
+        <option value="50 000">Комплектация автомобиля</option>     
+        <option value="80 000">Стандарт</option>
+        <option value="100 000">Спорт</option>
+        <option value="120 000">М спорт</option>
+        <option value="140 000">Бизнес</option>
+        <option value="150 000">Премиум</option>
           
           </select>     
         
         
           <div>Тип топлива</div>
          
-            <input id="fuel" value='1' type="radio" name="bmwfuel" onchange="fuelprice(this);">
+            <input id="fuel" type="radio" name="bmwfuel" value="100000">
             <label class="container">Дизель
           </label> <br>
           
          
-            <input id="fuel" value='2' type="radio" name="bmwfuel" onchange="fuelprice(this);" >
+            <input id="fuel" type="radio" name="bmwfuel"  value="110000">
             <label class="container">Бензин/Гибрид
           </label><br>
           
           
-            <input id="fuel" value='3' type="radio" name="bmwfuel" onchange="fuelprice(this);">
+            <input id="fuel" type="radio" name="bmwfuel" value="150000">
             <label class="container">Электрический
           </label> <br>
        
-    <button type="text" class="btn" onclick="total()">Рассчитать</button> <br>
-    <div id="totalPrice"></div> </div> 
+    <button type="text" class="btn">Рассчитать</button> <br>
+    <div class="totalPrice"></div></div> 
+  </form>
    
    
 <script>
 
+//model price
+  element = document.querySelector('#model');
+element.addEventListener("change", function() {
+  modelprice = document.querySelector('#model').value;
+ console.log(modelprice)
+});
 
-function modelprice(){
-  let model = 0;
-switch (document.getElementById('model')
-            .value) {
-            case '1':
-               model = 200000;
-              break;
-            case '2':
-                model = 250000;
-              break;
-              case '3':
-               model = 250000;
-              break;
-            case '4':
-                model = 400000;
-              break;
-              case '5':
-               model = 400000;
-              break;
-            case '6':
-                model = 450000;
-              break; 
-              return model;}
-          console.log(model) ; }
-
-
-   function kmprice(obj){
-    let km=0;
-    let a=obj.value;
+//kmprice
    
-switch (a){
-              case '1':
-               km = 50000;
-              break;
-            case '2':
-                km = 40000;
-              break;
-              case '3':
-               km = 30000;
-              break;
-            case '4':
-                km = 15000;
-              break;
-            
-  return km;}
-console.log(km);}
+document.querySelector('.btn').addEventListener("click",()=>{
 
-function yearprice(obj){
-let year=0;
-let b=obj.value;
-switch(b){
-  case '1':
-    year=10000;
-    break;
- case '2':
-    year=20000;
-    break;
-case '3': year=30000;
-break;
+ let radiokm=document.querySelectorAll('#km');
  
- return year;}
-console.log(year); }
+ for (i=0; i < radiokm.length; i++) {
+        if (radiokm[i].checked) {
+            kmprice = radiokm[i].value;
+        }
+    }
+console.log(kmprice);}
+)
+
+//yearprice
+
+document.querySelector('.btn').addEventListener("click",()=>{
+   
+ radioyear=document.querySelectorAll('#year');
+ for (i=0; i < radioyear.length; i++) {
+        if (radioyear[i].checked) {
+            yearprice = radioyear[i].value;
+        }
+    }
+ 
+console.log(yearprice);})
+
+//powerprice
+document.querySelector('.btn').addEventListener("click",()=>{
+    let powerprice;
+ radiopower=document.querySelectorAll('#power');
+ for (i=0; i < radiopower.length; i++) {
+        if (radiopower[i].checked) {
+            powerprice = radiopower[i].value;
+        }
+    }
+
+console.log(powerprice);})
+
+//styleprice
+element = document.querySelector('#style');
+element.addEventListener("change", function() {
+  styleprice = document.querySelector('#style').value;
+ console.log(styleprice)
+});
+
+//fuelprice
+document.querySelector('.btn').addEventListener("click",()=>{
+    let fuelprice;
+ radiofuel=document.querySelectorAll("#fuel");
+ for (i=0; i < radiofuel.length; i++) {
+        if (radiofuel[i].checked) {
+            fuelprice = radiofuel[i].value;
+        }
+    }
+
+console.log(fuelprice);})
 
 
-function powerprice(obj){
+document.querySelector('.btn').addEventListener("click", function(event) {
 
-let power=0;
-let c=obj.value;
+    this.querySelector("totalPrice").innerHTML = Array.prototype.reduce.call(this.querySelectorAll("input:checked"), (s, { value }) => s + Number(value), 0)
 
-switch(c){
-
-case '1':
-    power=10000;
-    break;
-case '2':
-  power=20000;
-  break;
-case '3':
-     power=30000;
-  break;
-  return power;}
-
-console.log(power); }
-
-function styleprice(){
-  let style = 0;
-switch (document.getElementById("style")
-            .value) {
-            case '1':
-              style = 50000;
-              break;
-            case '2':
-            style = 80000;
-              break;
-              case '3':
-              style = 100000;
-              break;
-            case '4':
-            style = 120000;
-              break;
-              case '5':
-              style = 140000;
-              break; 
-              return style;}
-          
-          console.log(style) ; }
+});
 
 
-function fuelprice(obj){
-let fuel=0;
-let d = obj.value;
-switch(d){
-case '1': fuel=100000;
-break;
-case '2':
-fuel = 110000;
-break;
-case '3': fuel = 150000;
-break;
-return fuel;}
-console.log(fuel); 
 
-}
-
-
-function total(){
-  let total = kmprice()+yearprice()+powerprice()+modelprice()+styleprice()+fuelprice();
-  console.log(total);
-
-let totalEl=document.getElementById('totalPrice');
-
-document.getElementById('totalPrice').innerHTML="Стоимость выбранного авто:" + total;
-totalEl.style.display='block'; }
-
-function hideTotal(){
-let totalEl=document.getElementById('totalPrice');
-totalEl.style.display='none';} 
 
 
 </script>

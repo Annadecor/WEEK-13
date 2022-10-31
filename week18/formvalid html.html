@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Document</title>
+    <style>
+        input:required:valid{
+            border-color: green;
+        }
+    </style>
+</head>
+<body>
+    <h1>Анкета для владельцев кошек</h1>
+<form>
+<p><label for="name"> Кличка питомца</label><input type="text" id="name" required/>*</p>
+
+    <fieldset>
+        <legend>Контакты владельца</legend>
+    
+<div><label for="fio"> Фамилия Имя Отчество </label> <input type="text" id="fio" required>*</div>
+<div><label for="phone"> Телефон </label><input type="tel" id="phone" 
+    pattern="/^\+?(\d{1,3})?[- .]?\(?(?:\d{2,3})\)?[- .]?\d\d\d[- .]?\d\d\d\d$/"
+    minlength="10" maxlength="20" required>* пример +7 999 9999999</div>
+<div><label for="address"> Email </label><input type="email" id="address" required>*</div>
+
+</fieldset>
+<p><label for="name">Выберете пароду питомца </label></p> 
+<select>
+
+<option value="1">Британец</option>
+<option value="2">Мейн-кун</option>
+<option value="3">Перс</option>
+<option value="4">Сфинкс</option>
+<option value="5">Бенгал</option>
+<option value="6">Регдол</option>
+<option value="7">Шотландец</option>
+<option value="8">Севенрный лесной кот</option>
+
+</select>
+    <p><label for="name">Чем питается ваш питомец?</label><br/>
+
+   <input type="checkbox"> Сухой корм <br/>
+    <input type="checkbox"> Влажный корм <br/>
+   <input type="checkbox"> Натуральный корм </p>
+
+<p> <label for="name"> Выберете пол питомца </label> <br/>
+<input type="radio" name="sex"> Самка <br/>
+<input type="radio" name="sex"> Самец <br/>
+</p>
+
+<p>
+    <label for="name"> Комментарий владельца </label><br/>
+    <textarea rows="20"></textarea></p>
+
+    <label for="name"> Сдесь можно прикрепить фото питомца </label>
+<button>Загрузить файл</button><br/>
+<p><button>Сохранить</button></p> </form>
+    
+</body>
+</html>

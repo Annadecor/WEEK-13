@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Document</title>
+    <style>
+        input:required:valid{
+            border-color: green;
+        }
+    </style>
+</head>
+<body>
+    <h1>Анкета для владельцев кошек</h1>
+<form>
+<p><label for="name"> Кличка питомца</label><input type="text" id="catname" required/>*</p>
+
+    <fieldset>
+        <legend>Контакты владельца</legend>
+    
+<div><label for="fio"> Фамилия Имя Отчество </label> <input type="text" id="fio" required>*</div>
+<div><label for="phone"> Телефон </label><input type="tel" id="phone" 
+    pattern="/^\+?(\d{1,3})?[- .]?\(?(?:\d{2,3})\)?[- .]?\d\d\d[- .]?\d\d\d\d$/"
+    minlength="10" maxlength="20" required>* пример +7 999 9999999</div>
+<div><label for="address"> Email </label><input type="email" id="address" required>*</div>
+
+</fieldset>
+<p><label for="selectbreed">Выберете пароду питомца </label></p> 
+<select class="selectbreed" id="selectbreed">
+
+<option value="Британец">Британец</option>
+<option value="Мейн-кун">Мейн-кун</option>
+<option value="Перс">Перс</option>
+<option value="Сфинкс">Сфинкс</option>
+<option value="Бенгал">Бенгал</option>
+<option value="Регдол">Регдол</option>
+<option value="Шотландец">Шотландец</option>
+<option value="Севенрный лесной кот">Севенрный лесной кот</option>
+
+</select>
+    <p><label for="name">Чем питается ваш питомец?</label><br/>
+
+   <input type="checkbox" class="food" value="Сухой корм"> Сухой корм <br/>
+    <input type="checkbox" class="food" value="Влажный корм"> Влажный корм <br/>
+   <input type="checkbox" class="food" value=" Натуральный корм"> Натуральный корм <br/>
+   <input type="checkbox" class="food" value="Диетический корм"> Диетический корм <br/></p>
+
+<p> <h4> Выберете пол питомца </h4>
+<input type="radio" id="pol" name="sex" class="sex" value="Самка">
+<label for="pol"> Самка  </label> <br/>
+<input type="radio" id="pol" name="sex" class="sex" value="Самец">
+<label for="pol"> Самец </label> <br/>
+</p>
+
+<p>
+    <label for="name"> Комментарий владельца </label><br/>
+    <textarea rows="20" id="comment"></textarea></p>
+
+    <label for="name"> Сдесь можно прикрепить фото питомца </label>
+<button>Загрузить файл</button><br/>
+<p><button class="btn">Сохранить</button></p> </form>
+
+
+<script>
+
+
+class Cat {
+
+constructor(name,phone,address,namecat,breed,sex,food) {
+    this.name=name;
+    this.phone=phone;
+    this.address=address;
+    this.namecat=namecat;
+    this.breed=breed;
+    this.sex=sex;
+    this.food=food;
+    this.comment=comment;
+}
+
+}
+
+document.querySelector('.btn').addEventListener("click",()=>{
+
+//парода
+breed = document.querySelector('#selectbreed').value;
+ console.log(breed);
+
+//еда
+let arrchecked=[];
+
+  let checkbox = document.querySelectorAll('.food');
+  for(let i=0; i<checkbox.length; i++ ){
+
+if (checkbox[i].checked){
+    arrchecked.push(checkbox[i].value);
+    }
+    //console.log(arrchecked)
+}
+
+food = arrchecked.join(',');
+console.log(food) ;
+
+
+//пол
+
+  let radio = document.querySelectorAll('.sex');
+ 
+  for(let i=0; i<radio.length; i++ ){
+
+if (radio[i].checked){
+    sex = radio[i].value;
+    }
+    console.log(sex)
+}
+
+//имя кота
+let namecat = document.querySelector('#catname').value;
+ console.log(namecat)
+//имя хозяина
+  let name=document.getElementById('fio').value;  
+  console.log(name)
+//телефон
+  let phone=document.getElementById('phone').value;  
+  console.log(phone)
+//емайл
+  let address=document.getElementById('address').value;  
+  console.log(address);
+
+  
+
+
+let Kotik=new Cat(name,phone,address,namecat,breed,sex,food);
+
+console.log(Kotik)
+
+console.log(Kotik.name);
+console.log(Kotik.phone);
+console.log(Kotik.address);
+console.log(Kotik.namecat);
+console.log(Kotik.breed);
+console.log(Kotik.sex);
+console.log(Kotik.food);
+
+})
+
+
+
+</script>
+    
+</body>
+</html>

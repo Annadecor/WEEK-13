@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<h2>Супер герои Марвел</h2>
+<div id="herocontainer">
+
+
+<p>Оцени героя</p>
+<input type="radio" name="score" id="betman" value="1">1
+<input type="radio" name="score" id="betman" value="2">2
+<input type="radio" name="score" id="betman" value="3">3
+<input type="radio" name="score" id="betman" value="4">4
+<input type="radio" name="score" id="betman" value="5">5
+<input type="radio" name="score" id="betman" value="6">6
+<input type="radio" name="score" id="betman" value="7">7
+<input type="radio" name="score" id="betman" value="8">8
+<input type="radio" name="score" id="betman" value="9">9
+<input type="radio" name="score" id="betman" value="10">10
+<button id="btn">Отправить</button> </div>
+
+
+<script>
+
+
+    let jsonHeroes = `[
+{   "name": "Бэтмен",
+    "photo": "https://n1s1.hsmedia.ru/13/a5/b2/13a5b2373d5e23489d9a4949ada5b927/547x397_0xac120002_8752067681540468870.jpg",
+    "universe": "DC Comics",
+    "ego": "Брюс Уэйн",
+    "activity": "борец с преступностью, филантроп, миллиардер",
+    "friends": "Робин, Бэтгерл",
+    "superpower": "интеллект, обширные познания, знания боевых искусств, ловкость",
+    "description":"по популярности человек-летучая мышь может сравниться только с Суперменом. Его образ кажется очень мистическим и мрачным: черный костюм с развевающимся плащом, устрашающий Бэтмобиль, штаб-квартира в сырой пещере. Его биография настолько же темна, как и образ. В детстве у него на глазах убили родителей, и юный Брюс поклялся всеми силами защищать родной Готэм от преступности.  "
+
+
+}]`
+
+document.addEventListener("DOMContentLoaded",function (event){
+let heroes =JSON.parse(jsonHeroes);
+
+console.log(jsonHeroes);
+let heroesdata="";
+for(let hero of heroes){
+
+heroesdata +=`<div class="infoCard">
+    <h2 class="name">Имя:${hero.name}</h2>
+<img src='${hero.foto}'>
+<div class="universe">Вселенная:${hero.universe}</div>
+<div class="ego">Альтер эго:${hero.ego} </div>
+<div class="activity">Род деятельности:${hero.activity}</div>
+<div class="friends">Друзья:${hero.friends}</div>
+<div class="superpower">Суперсила${hero.superpower}</div>
+<div class="description">Описание${hero.description}</div> </div>`;}
+document.getElementById('herocontainer').innerHTML = heroesdata;});
+
+</script>
+    
+</body>
+</html>
