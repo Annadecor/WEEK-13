@@ -159,3 +159,55 @@ document.querySelector('.btn').addEventListener("click",()=>{
 
   // навесим созданый вне цикла хандлер на событие
         element.addEventListener("change", onChange);
+
+         isEmail=(str)=> {
+            return /^(.+)@(.+)\.(.+)$/.test(str)
+        
+        }
+        isDomain=(str)=> {
+            return /^[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?\.[a-zA-Z]{2,}$/.test(str)
+        }
+        isDate=(str)=> {
+            return /[0-9]{2}\.[0-9]{2}\.[0-9]{4}/.test(str)
+            
+        }
+        isPhone=(str)=> {
+          return /\+31\ \([0-9]{3}\)\ [0-9]{2}-[0-9]{2}-[0-9]{3}/.test(str)}
+
+
+          (function(selector) {
+    
+            function save(data) {
+                localStorage.setItem(selector, JSON.stringify(data));
+            }
+           
+            //  используем одну общую
+            function onChange(event) {
+                var element = event.target,
+                    name = element.name,
+                    value = element.value;
+                data[name] = value;
+                save(data);
+            }
+            var elements = document.querySelectorAll(selector),
+                data = localStorage.getItem(selector);
+            if(data) { // если в сторадже что-то есть
+                // то можем и распарсить
+                data = JSON.parse(data);
+            } else {
+                // иначе парсить нельзя, будет ошибка
+                // присвоим дефолтное значение и сохраним
+                save(data = {});
+            }
+            // обратимся напрямую к прототипу
+            Array.prototype.forEach.call(elements, function(element) {
+                var name = element.name,
+                    value = element.value;
+                if(data[name] === value) { // если текущий элемент отмечен в сторадже
+                    // то отметим и на странице
+                    element.checked = true;
+                }
+                // навесим созданый вне цикла хандлер на событие
+              document.querySelector('.btn').addEventListener("click", onChange);    
+            });
+        })("input[type=radio]");
