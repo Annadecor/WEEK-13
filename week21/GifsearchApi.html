@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Gif</title>
+    <style>
+
+        div{
+        text-align: center;
+        }
+        input{
+            width:40%;
+
+        }
+        label{
+            font-size: large;
+            color:blueviolet
+        }
+        button{
+            width:15%;
+            height: 30%;
+            background-color: blueviolet;
+            cursor: pointer;
+        }
+    </style>
+
+
+</head>
+<body>
+ 
+  <div> 
+<h2>Search your favourite Gif</h2>
+<label for="search">Write a key word</label>
+<input type="text" class="search"> 
+<button id="btnsearch" onclick="search()">Search</button>
+<div class="result"></div>
+</button>  
+
+<script>
+function search(){
+let Giftype=document.querySelector('.search').value;
+fetch("https://api.giphy.com/v1/gifs/search?api_key=JFyhWnCQlvADrJifDiM4XEagA3VPM9kU&q=" + Giftype + "&limit=5&offset=0&rating=g&lang=en")
+
+    .then (response=>response.json())
+    .then (result=>{
+        resultdiv=document.querySelector('.result')
+        resultdiv.innerHTML=""
+        if(result.data>0){
+            result.data.forEach(element => {
+                resultdiv.innerHTML+=`<img class="pic"src=${element.images.original.url}><br>`
+                
+            });
+        }
+    })
+
+    .catch(error=>console.log(error));   
+}
+
+
+
+</script>
+
+</body>
+</html>

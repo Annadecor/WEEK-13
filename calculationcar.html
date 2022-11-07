@@ -238,9 +238,8 @@ console.log(fuelprice);})
 
 
 document.querySelector('.btn').addEventListener("click", function(event) {
-
-    this.querySelector("totalPrice").innerHTML = Array.prototype.reduce.call(this.querySelectorAll("input:checked"), (s, { value }) => s + Number(value), 0)
-
+    const array = Array.from(this.querySelectorAll("input:checked")).map((item) => Number(item));
+    this.querySelector("totalPrice").innerHTML = array.reduce((a, b) => a + b, 0);
 });
 
 
