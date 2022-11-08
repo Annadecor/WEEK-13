@@ -41,7 +41,7 @@
 <script>
 function search(){
 let Giftype=document.querySelector('.search').value;
-fetch("https://api.giphy.com/v1/gifs/search?api_key=JFyhWnCQlvADrJifDiM4XEagA3VPM9kU&q=" + Giftype + "&limit=5&offset=0&rating=g&lang=en")
+fetch('https://api.giphy.com/v1/gifs/search?api_key=JFyhWnCQlvADrJifDiM4XEagA3VPM9kU&limit=5&q=' + Giftype)
 
     .then (response=>response.json())
     .then (result=>{
