@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+.container{
+    border: 3px solid rgb(22, 167, 105);
+    width:60%;
+    height:fit-content;
+}
+
+h1{
+    text-align: center;
+    color: rgb(20, 168, 104);
+}
+h2{
+   
+    color: rgb(20, 168, 104);
+}
+
+
+.container1{
+    width:40%;
+    height:fit-content;
+    border: 3px solid red;
+}
+
+.avatar{
+  
+    width:20%;
+    height:fit-content;
+    margin-left: 20%;
+    
+    
+}
+
+.maincontainer {
+    display: flex;
+    height: 400px;
+    width: 100%;
+}
+.time{
+
+   
+    width:90%;
+    height:30%;
+    margin-left: 10%;
+    margin-top: 5%;
+    font-size:xx-large;
+    color:red;
+   
+
+}
+
+.maincontainer1 {
+    display: flex;
+ 
+    height: 400px;
+    width: 100%;
+}
+.text{
+    border: 3px solid rgb(22, 167, 105);
+    margin-left: 20%;
+    margin-top:5%;
+    width:50%;
+    height:fit-content;
+    font-size: 30px;
+    color: rgb(20, 168, 104);
+    text-align: center;
+
+}
+
+    </style>
+</head>
+
+<body background="color.jpg">
+
+    <h1 >Твоя страница здоровья</h1> <br>
+    
+    <h2>Самые полезные продукты по содержанию белка</h2>
+    <div class="maincontainer">
+    <div class="container">
+        <canvas id="myChart" width="600" height="200"></canvas>
+   </div>
+
+ 
+<div class="avatar">
+<img src="avatar.png" width="200" height="200"><p>Я Анна. Твой ассистент здоровья.<br>Здравствуйте,как вас зовут?</p>
+</div>  </div>
+
+<h2>Дневная норма потребления белков,жиров и углеводов</h2>
+<div class="maincontainer1">
+   <div class="container1">
+        <canvas id="myChart1" width="300" height="300"></canvas>
+   </div>
+   <div class="text">Время заняться здоровьем &#8658</div>
+   <div class="time"></div> </div>
+
+
+<script src="bundle1.js"></script>
+
+
+
+</body>
+</html>

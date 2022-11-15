@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Document</title>
+    <style>
+        input:required:valid{
+            border-color: green;
+        }
+    </style>
+</head>
+<body>
+    <h1>Анкета для владельцев кошек</h1>
+
+<form method="post" action="/post" id="postform">
+
+<p><label for="name"> Кличка питомца</label><input type="text" id="name" form="postform" required/>*</p>
+
+    <fieldset>
+        <legend>Контакты владельца</legend>
+    
+<div><label for="fio"> Фамилия Имя Отчество </label> <input type="text" id="fio" name="fio" required>*</div>
+<div><label for="phone"> Телефон </label><input type="tel" id="phone" name="phone"
+    pattern="/^\+?(\d{1,3})?[- .]?\(?(?:\d{2,3})\)?[- .]?\d\d\d[- .]?\d\d\d\d$/"
+    minlength="10" maxlength="20" required>* пример +7 999 9999999</div>
+<div><label for="address"> Email </label><input type="email" id="address" name="email" required>*</div>
+
+</fieldset>
+<p><label for="breed">Выберете пароду питомца </label></p> 
+<select name="breed">
+
+<option name="breed" value="Британец">Британец</option>
+<option name="breed" value="Мейн-кун">Мейн-кун</option>
+<option name="breed" value="Перс">Перс</option>
+<option name="breed" value="Сфинкс">Сфинкс</option>
+<option name="breed" value="Бенгал">Бенгал</option>
+<option name="breed" value="Регдол">Регдол</option>
+<option name="breed" value="Шотландец">Шотландец</option>
+<option name="breed" value="Севенрный лесной кот">Севенрный лесной кот</option>
+
+</select>
+    <p><label for="food">Чем питается ваш питомец?</label><br/>
+
+   <input type="checkbox" name="food" value="Сухой корм"> Сухой корм <br/>
+    <input type="checkbox" name="food" value="Влажный корм">Влажный корм <br/>
+   <input type="checkbox" name="food" value="Натуральный корм"> Натуральный корм </p>
+
+<p> <label for="sex"> Выберете пол питомца </label> <br/>
+<input type="radio" name="sex" value="Самка"> Самка <br/>
+<input type="radio" name="sex" value="Самец"> Самец <br/>
+</p>
+
+<p>
+    <label for="commets"> Комментарий владельца </label><br/>
+    <textarea rows="20" name="comments"></textarea></p>
+
+    <label for="foto"> Сдесь можно прикрепить фото питомца </label>
+<button>Загрузить файл</button><br/>
+<p><button type="submit" id="postbtn">Отправить</button></p> 
+</form>
+
+
+<script>
+postbtn.onclick=function(event)
+{ event.preventDefault();
+
+try{
+fetch("https://httpbin.org/post",{
+  method: 'POST',
+  body: new FormData(postform)
+
+})
+.then (response=>response.json())
+    .then (activity=>{console.log(activity)
+    .catch(error=>console.log(error));
+
+})
+if (err.code =="503") {
+    throw new Error("Сервер не готов обработать запрос")} }
+
+catch(err){
+    
+        alert( "HttpError 503: " + err.message );
+}
+   
+}
+
+</script>
+    
+</body>
+</html>
